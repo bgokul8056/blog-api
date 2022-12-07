@@ -19,5 +19,16 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('posts.urls')),
+    # This is to include authentication by rest frameowkr
     path('api-auth/', include('rest_framework.urls')),
+    # This is to include authentication by dj_rest_auth package
+    path('api/v1/dj-rest-auth/',include('dj_rest_auth.urls')),
+    # This is to include all_auth authentication for registration
+    path("api/v1/dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
 ]
+# Endpoints for different tasks:
+# Registration : http://127.0.0.1:8000/api/v1/dj-rest-auth/registration/
+# Login : http://127.0.0.1:8000/api/v1/dj-rest-auth/login/
+# Logout : http://127.0.0.1:8000/api/v1/dj-rest-auth/logout/
+# Reset : http://127.0.0.1:8000/api/v1/dj-rest-auth/password/reset
+# Reset confirm: http://127.0.0.1:8000/api/v1/dj-rest-auth/password/reset/confirm
