@@ -67,7 +67,7 @@ ROOT_URLCONF = 'django_project.urls'
 
 REST_FRAMEWORK = { # new
     "DEFAULT_PERMISSION_CLASSES": [
-    "rest_framework.permissions.AllowAny",
+    "rest_framework.permissions.IsAuthenticated",
     ],
 }
 
