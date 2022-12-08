@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    'drf_spectacular',
     # local
     'accounts.apps.AccountsConfig',
     'posts.apps.PostsConfig',
@@ -72,6 +73,7 @@ CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
 
 ROOT_URLCONF = 'django_project.urls'
 
+#  This is for registering DRF, assigning permission classes, JWT Tokenization, and also OpenAPI documentation
 REST_FRAMEWORK = { # new
     "DEFAULT_PERMISSION_CLASSES": [
     "rest_framework.permissions.IsAuthenticated",
@@ -80,6 +82,14 @@ REST_FRAMEWORK = { # new
     "rest_framework.authentication.SessionAuthentication",
     "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+# settings for the OpenAPI documentation
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Blog API Project",
+    "DESCRIPTION": "A sample blog to learn about DRF",
+    "VERSION": "1.0.0",
+# OTHER SETTINGS
 }
 
 TEMPLATES = [
